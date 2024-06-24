@@ -1,0 +1,136 @@
+* {
+    box-sizing: border-box;
+}
+
+.Registeration-form{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Registeration-form-container{
+    width:max(23vw,330px);
+    border:1px solid #c9c9c9;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px;
+    gap:20px;
+     margin-top: 30px;
+ 
+}
+
+.Registeration-form-container h1{
+    margin-top: -10px;
+    margin-bottom:5px;
+    font-weight: 450;
+    font-size: 30px;
+}
+
+.Registeration-form-container h3{
+    margin-top: -18px;
+    font-size: 13px;
+    font-weight: 500;
+    margin-left: 2px;
+}
+
+.field{
+    padding: 0px 2px;
+    display: flex;
+    flex-direction: column;
+    margin-top: -10px;
+
+}
+.field label{
+    font-weight: 700;
+    font-size: small;
+
+}
+
+#fullname{
+    margin-bottom: 5px;
+    padding: 6px;
+    border-radius: 4px;
+    border-width: 1px;
+    border-color: rgb(175, 172, 172);
+    outline-color:rgb(24, 160, 175);
+}
+
+#fullname:focus{
+    box-shadow: 0px 0px 5px 1px aqua;
+}
+
+#mobile{
+    padding: 6px;
+    border-radius: 4px;
+    border-width: 1px;
+    border-color: rgb(175, 172, 172);
+    outline-color:rgb(24, 160, 175);
+}
+
+#mobile:focus{
+    box-shadow: 0px 0px 5px 1px aqua;
+}
+
+#password{
+    padding: 6px;
+    border-radius: 4px;
+    border-width: 1px;
+    border-color: rgb(175, 172, 172);
+    outline-color:rgb(24, 160, 175);
+}
+
+#password:focus{
+    box-shadow: 0px 0px 5px 1px aqua;
+}
+
+.verify{
+    margin-top: -20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+
+.button button{
+    background: #FFD814;
+    /* border-color: #FCD200; */
+    border: none;
+    border-radius: 8px;
+    padding: 6px;
+    font-size: 13px;
+    margin-top: 5px;
+    margin-left: 0px;
+    width:max(20vw,295px);
+    text-align: center;
+}
+
+.button button:hover{
+    background-color:  #FCD200;
+    /* border-color: #a88734 #9c7e31 #846a29; */
+ }
+
+.buy{
+    border-top:1px solid rgb(221, 217, 217);
+    margin-top: 5px;
+ }
+ .buy h4{
+    margin-top: 10px;
+    font-size: 13px;
+    margin-bottom: 3px;
+ }
+
+ .buy a{
+    text-decoration: none;
+    font-size: 13.2px;
+ }
+
+ .account{
+    margin-top: 5px;
+    font-size: 13.5px;
+ }
+
+ .condition{
+    font-size: 12.5px;
+ }
