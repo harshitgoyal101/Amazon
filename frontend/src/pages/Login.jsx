@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import TextError from "../components/TextError";
 import logo from '../assets/amazon_logo.webp';
 import { useNavigate } from "react-router-dom";
-import "../styles/Login.css";
+import "../styles/form.css";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -22,7 +21,7 @@ const Login = () => {
     };
 
     return (
-        <div className="login-form" id="login-form">
+        <div className="form" id="form">
             <img src={logo}/>
             <Formik
                 initialValues={initialValues}
@@ -30,16 +29,16 @@ const Login = () => {
                 onSubmit={onSubmit}
             >
                 <Form>
-                    <div className="login-form-container">
+                    <div className="form-container">
                         <h1>Sign in</h1>
                         <h2>Email or Username</h2>
 
-                        <Field type='text' id='email' name='email'/>
+                        <Field type='text' id='email' name='email' placeholder='Email or Username'/>
 
                         <h2>Password</h2>
-                        <Field type='password' id='password' name='password'/>
+                        <Field type='password' id='password' name='password' placeholder='Password'/>
 
-                        <button type="submit" className="SignIn">Sign In</button>
+                        <button type="submit" className="yellowButton">Sign In</button>
                         <div style={{marginBottom: 20}}>
                             By continuing, you agree to Amazon's <a href="#">Conditions of Use</a> and <a href="#">Privacy Notice</a>.
                         </div>
@@ -51,7 +50,7 @@ const Login = () => {
                             <h5>New to Amazon?</h5>
                         </div>
 
-                        <button type="button">Create your Amazon account</button>
+                        <button type="button" onClick={() => navigate("/register")}>Create your Amazon account</button>
                     </div>
                 </Form>
             </Formik>

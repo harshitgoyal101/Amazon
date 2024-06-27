@@ -6,7 +6,7 @@
     line-height: 19px;
 }
 
-.login-form img {
+.form img {
     display: block;
     margin-left: auto;
     margin-right: auto;  
@@ -14,14 +14,14 @@
     width: 160px;
 }
 
-.login-form {
+.form {
     position: absolute;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, 0%);
 }
 
-.login-form-container{
+.form-container{
     width: 340px;
     border: 1px solid lightgray;
     border-radius: 8px;
@@ -75,12 +75,12 @@ button {
     box-shadow: 1px 1px 5px lightgray;
 }
 
-.SignIn {
+.yellowButton {
     border: 0;
     background-color: #FFD814;
 }
 
-.SignIn:hover {
+.yellowButton:hover {
     background-color: #f0c14b;
 }
 
