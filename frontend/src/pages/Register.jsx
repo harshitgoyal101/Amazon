@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import api from "../api";
 import { Link } from 'react-router-dom';
 import logo from '../assets/amazon_logo.webp';
 import { useNavigate } from "react-router-dom";
@@ -9,26 +10,35 @@ import "../styles/form.css";
 const Register = () => {
     const navigate = useNavigate();
 
-    const initialValues = { email: "" };
+    const initialValues = { 
+        username: "",
+        email: "", 
+        password: "",
+        re_password: ""
+    };
 
-    const validationSchema = Yup.object({
-        email: Yup.string()
-            .email("Invalid email format")
-            .required("!Enter your email"),
-    });
-
-    const onSubmit = async (values) => {
+    const onSubmit = async (values, {resetForm}) => {
         console.log("Values", values);
+        try {
+            const registerData = {
+                username: values.username,
+                password: values.password
+            }
+            console.log(registerData);
+            const res = await api.post("/api/register/", registerData);
+            console.log(res);
+            navigate("/login")
+        } catch(error) {
+            console.log(error);
+        }
+
+        resetForm();
     };
 
     return (
         <div className="form" id="form">
             <img src={logo}/>
-            <Formik
-                initialValues={initialValues}
-                validationSchema={validationSchema}
-                onSubmit={onSubmit}
-            >
+            <Formik initialValues={initialValues} onSubmit={onSubmit}>
                 <Form>
                     <div className="form-container">
                         <h1>Create account</h1>

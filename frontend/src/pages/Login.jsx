@@ -1,42 +1,50 @@
 import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import api from "../api";
 import logo from '../assets/amazon_logo.webp';
 import { useNavigate } from "react-router-dom";
 import "../styles/form.css";
+import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
 
 const Login = () => {
     const navigate = useNavigate();
 
-    const initialValues = { email: "" };
+    const initialValues = { username: "", password: "" };
 
-    const validationSchema = Yup.object({
-        email: Yup.string()
-            .email("Invalid email format")
-            .required("!Enter your email"),
-    });
-
-    const onSubmit = async (values) => {
+    const onSubmit = async (values, {resetForm}) => {
         console.log("Values", values);
+        try {
+            const loginData = {
+                username: values.username,
+                password: values.password
+            }
+            console.log(loginData);
+            const res = await api.post("/api/token/", loginData);
+            console.log(res)
+            localStorage.setItem(ACCESS_TOKEN, res.data.ACCESS_TOKEN);
+            localStorage.setItem(REFRESH_TOKEN, res.data.REFRESH_TOKEN);
+            navigate("/")
+        } catch(error) {
+            console.log(error);
+        }
+
+        resetForm();
     };
 
     return (
         <div className="form" id="form">
             <img src={logo}/>
-            <Formik
-                initialValues={initialValues}
-                validationSchema={validationSchema}
-                onSubmit={onSubmit}
-            >
+            <Formik initialValues={initialValues} onSubmit={onSubmit}>
                 <Form>
                     <div className="form-container">
                         <h1>Sign in</h1>
                         <h2>Email or Username</h2>
 
-                        <Field type='text' id='email' name='email' placeholder='Email or Username'/>
+                        <Field type='text' id='username' name='username' placeholder='Email or Username'/>
 
                         <h2>Password</h2>
-                        <Field type='password' id='password' name='password' placeholder='Password'/>
+                        <Field type='password' id='password' name='password' placeholder='Password' autoComplete="on"/>
 
                         <button type="submit" className="yellowButton">Sign In</button>
                         <div style={{marginBottom: 20}}>
