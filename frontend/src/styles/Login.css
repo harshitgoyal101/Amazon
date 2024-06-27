@@ -23,7 +23,6 @@
 
 .login-form-container{
     width: 340px;
-    height: 430px;
     border: 1px solid lightgray;
     border-radius: 8px;
     padding: 20px 26px;
@@ -50,7 +49,7 @@ input {
     height: 31px;
     padding: 3px 7px;
     line-height: normal;
-    border: 1px solid #a6a6a6;
+    border: 2px solid #a6a6a6;
     border-top-color: #949494;
     border-radius: 3px;
     box-shadow: 0 1px 0 rgba(255, 255, 255, .5), 0 1px 0 rgba(0, 0, 0, .07) inset;
@@ -58,8 +57,8 @@ input {
 }
 
 input:focus {  
-    outline: 4px solid lightblue;
-    border: 1px solid white;
+    outline: 4px solid rgb(140, 238, 238);
+    border: 2px solid rgb(35, 71, 71);
 }
 
 button {
@@ -67,15 +66,21 @@ button {
     margin-top: 20px;
     margin-bottom: 20px;
     padding: 5px;
-    border: 0;
     color: #0F1111;
-    background-color: #FFD814;
     border-radius: 8px;
+    border: none;
     font-size: 13px;
     line-height: 19px;
+    background-color: white;
+    box-shadow: 1px 1px 5px lightgray;
 }
 
-button:hover {
+.SignIn {
+    border: 0;
+    background-color: #FFD814;
+}
+
+.SignIn:hover {
     background-color: #f0c14b;
 }
 
@@ -90,4 +95,38 @@ a {
     margin-right: 5px;
     position: relative;
     bottom: -2px;
+}
+
+h5 {
+    line-height: 1;
+    font-size: 12px;
+    color: #767676;
+    font-weight: 400;
+    z-index: 2;
+    position: relative;
+    display: inline-block;
+    background-color: #fff;
+    padding: 0 8px 0 7px;
+}
+
+.divider {
+    margin-top: 10px;
+    text-align: center;
+    position: relative;
+    top: 2px;
+    padding-top: 1px;
+    line-height: 0;
+}
+
+.divider::after {
+    content: "";
+    width: 100%;
+    background-color: transparent;
+    display: block;
+    height: 1px;
+    border-top: 1px solid #e7e7e7;
+    position: absolute;
+    top: 50%;
+    margin-top: -1px;
+    z-index: 1;
 }

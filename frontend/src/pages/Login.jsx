@@ -32,19 +32,26 @@ const Login = () => {
                 <Form>
                     <div className="login-form-container">
                         <h1>Sign in</h1>
-                        <h2>Email or mobile phone number</h2>
+                        <h2>Email or Username</h2>
 
-                        <Field type='email' id='email' name='email'/>
+                        <Field type='text' id='email' name='email'/>
 
                         <h2>Password</h2>
                         <Field type='password' id='password' name='password'/>
 
-                        <button type="submit">Sign In</button>
+                        <button type="submit" className="SignIn">Sign In</button>
                         <div style={{marginBottom: 20}}>
-                        By continuing, you agree to Amazon's <a href="#">Conditions of Use</a> and <a href="#">Privacy Notice</a>.
+                            By continuing, you agree to Amazon's <a href="#">Conditions of Use</a> and <a href="#">Privacy Notice</a>.
                         </div>
-                        <input type="checkbox" className="checkbox" name="rememberMe" value="true" />
-                        Keep me signed in. <a href="#">Details</a>
+                        <div>
+                            <input type="checkbox" className="checkbox" name="rememberMe" value="true" />
+                            Keep me signed in. <a href="#">Details</a>
+                        </div>
+                        <div className="divider">
+                            <h5>New to Amazon?</h5>
+                        </div>
+
+                        <button type="button">Create your Amazon account</button>
                     </div>
                 </Form>
             </Formik>
