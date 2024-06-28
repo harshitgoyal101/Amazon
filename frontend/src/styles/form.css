@@ -1,9 +1,10 @@
-* {
+.form {
     font-family: "Amazon Ember", Arial, sans-serif;
     margin: 0;
     padding: 0;
     font-size: 13px;
     line-height: 19px;
+    color: #111;
 }
 
 .form img {
@@ -28,26 +29,28 @@
     padding: 20px 26px;
 }
 
-h1 {
+.form_h1 {
     font-weight: 400;
     font-size: 28px;
     line-height: 1.2;
 }
 
-h2 {
+.form_h3 {
     display: block;
     padding-left: 2px;
     padding-bottom: 2px;
     font-weight: 700;
-    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: 13px;
+    line-height: 19px;
 }
 
-input {
+.form_input {
     width: 320px;
     margin: 0;
     background-color: #fff;
     height: 31px;
-    padding: 3px 7px;
+    padding: 3px;
     line-height: normal;
     border: 2px solid #a6a6a6;
     border-top-color: #949494;
@@ -56,12 +59,12 @@ input {
     outline: 0;
 }
 
-input:focus {  
+.form_input:focus {  
     outline: 4px solid rgb(140, 238, 238);
     border: 2px solid rgb(35, 71, 71);
 }
 
-button {
+.form_button {
     width: 100%;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -84,7 +87,7 @@ button {
     background-color: #f0c14b;
 }
 
-a {
+.form_a {
     color: #0066c0;
     text-decoration: none;
 }
@@ -97,7 +100,7 @@ a {
     bottom: -2px;
 }
 
-h5 {
+.form_h5 {
     line-height: 1;
     font-size: 12px;
     color: #767676;

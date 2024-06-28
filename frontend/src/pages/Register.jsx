@@ -41,27 +41,27 @@ const Register = () => {
             <Formik initialValues={initialValues} onSubmit={onSubmit}>
                 <Form>
                     <div className="form-container">
-                        <h1>Create account</h1>
-                        <h2>Your name</h2>
-                        <Field type='text' id='username' name='username' placeholder='Username'/>
-                        <h2>Email</h2>
-                        <Field type='email' id='email' name='email' placeholder='Email'/>
+                        <h1 className="form_h1">Create account</h1>
+                        <h3 className="form_h3">Your name</h3>
+                        <Field className="form_input" type='text' id='username' name='username' placeholder='Username'/>
+                        <h3 className="form_h3">Email</h3>
+                        <Field className="form_input" type='email' id='email' name='email' placeholder='Email'/>
 
-                        <h2>Password</h2>
-                        <Field type='password' id='password' name='password' placeholder='Password'/>
+                        <h3 className="form_h3" >Password</h3>
+                        <Field className="form_input" type='password' id='password' name='password' placeholder='Password'/>
 
-                        <h2>Re-enter password</h2>
-                        <Field type='password' id='re_password' name='re_password' placeholder='Confirm Password'/>
+                        <h3 className="form_h3" >Re-enter password</h3>
+                        <Field className="form_input" type='password' id='re_password' name='re_password' placeholder='Confirm Password'/>
 
-                        <button type="submit" className="yellowButton">Sign In</button>
+                        <button type="submit" className="form_button yellowButton">Sign In</button>
                         <div style={{marginBottom: 10}}>
-                            By continuing, you agree to Amazon's <a href="#">Conditions of Use</a> and <a href="#">Privacy Notice</a>.
+                            By continuing, you agree to Amazon's <a  className="form_a" href="#">Conditions of Use</a> and <a  className="form_a" href="#">Privacy Notice</a>.
                         </div>
                         <div className="divider">
-                            <h5></h5>
+                            <h5 className="form_h5"></h5>
                         </div>
                         <div style={{marginTop: 20}}>
-                            Already have an account? <Link to="/login" > Sign in </Link>
+                            Already have an account? <Link  className="form_a" to="/login" > Sign in </Link>
                         </div>
                     </div>
                 </Form>

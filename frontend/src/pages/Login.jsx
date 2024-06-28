@@ -36,27 +36,27 @@ const Login = () => {
             <Formik initialValues={initialValues} onSubmit={onSubmit}>
                 <Form>
                     <div className="form-container">
-                        <h1>Sign in</h1>
-                        <h2>Email or Username</h2>
+                        <h1 className="form_h1">Sign in</h1>
+                        <h3 className="form_h3">Email or Username</h3>
 
-                        <Field type='text' id='username' name='username' placeholder='Email or Username'/>
+                        <Field className="form_input" type='text' id='username' name='username' placeholder='Email or Username'/>
 
-                        <h2>Password</h2>
-                        <Field type='password' id='password' name='password' placeholder='Password' autoComplete="on"/>
+                        <h3 className="form_h3">Password</h3>
+                        <Field className="form_input" type='password' id='password' name='password' placeholder='Password' autoComplete="on"/>
 
-                        <button type="submit" className="yellowButton">Sign In</button>
+                        <button type="submit" className="form_button yellowButton">Sign In</button>
                         <div style={{marginBottom: 20}}>
-                            By continuing, you agree to Amazon's <a href="#">Conditions of Use</a> and <a href="#">Privacy Notice</a>.
+                            By continuing, you agree to Amazon's <a className="form_a" href="#">Conditions of Use</a> and <a className="form_a" href="#">Privacy Notice</a>.
                         </div>
                         <div>
                             <input type="checkbox" className="checkbox" name="rememberMe" value="true" />
-                            Keep me signed in. <a href="#">Details</a>
+                            Keep me signed in. <a className="form_a" href="#">Details</a>
                         </div>
                         <div className="divider">
-                            <h5>New to Amazon?</h5>
+                            <h5 className="form_h5">New to Amazon?</h5>
                         </div>
 
-                        <button type="button" onClick={() => navigate("/register")}>Create your Amazon account</button>
+                        <button className="form_button" type="button" onClick={() => navigate("/register")}>Create your Amazon account</button>
                     </div>
                 </Form>
             </Formik>
