@@ -1,57 +1,61 @@
 import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import TextError from "../components/TextError";
+import api from "../api";
 import logo from '../assets/amazon_logo.webp';
 import { useNavigate } from "react-router-dom";
-import "../styles/Login.css";
+import "../styles/form.css";
+import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
 
 const Login = () => {
     const navigate = useNavigate();
 
-    const initialValues = { email: "" };
+    const initialValues = { username: "", password: "" };
 
-    const validationSchema = Yup.object({
-        email: Yup.string()
-            .email("Invalid email format")
-            .required("!Enter your email"),
-    });
+    const onSubmit = async (values, {resetForm}) => {
+        try {
+            const loginData = {
+                username: values.username,
+                password: values.password
+            }
+            const res = await api.post("/api/token/", loginData);
+            localStorage.setItem(ACCESS_TOKEN, res.data.access);
+            localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
+            navigate("/");
+        } catch(error) {
+            console.log(error);
+        }
 
-    const onSubmit = async (values) => {
-        console.log("Values", values);
+        resetForm();
     };
 
     return (
-        <div className="login-form" id="login-form">
+        <div className="form" id="form">
             <img src={logo}/>
-            <Formik
-                initialValues={initialValues}
-                validationSchema={validationSchema}
-                onSubmit={onSubmit}
-            >
+            <Formik initialValues={initialValues} onSubmit={onSubmit}>
                 <Form>
-                    <div className="login-form-container">
-                        <h1>Sign in</h1>
-                        <h2>Email or Username</h2>
+                    <div className="form-container">
+                        <h1 className="form_h1">Sign in</h1>
+                        <h3 className="form_h3">Email or Username</h3>
 
-                        <Field type='text' id='email' name='email'/>
+                        <Field className="form_input" type='text' id='username' name='username' placeholder='Email or Username'/>
 
-                        <h2>Password</h2>
-                        <Field type='password' id='password' name='password'/>
+                        <h3 className="form_h3">Password</h3>
+                        <Field className="form_input" type='password' id='password' name='password' placeholder='Password' autoComplete="on"/>
 
-                        <button type="submit" className="SignIn">Sign In</button>
+                        <button type="submit" className="form_button yellowButton">Sign In</button>
                         <div style={{marginBottom: 20}}>
-                            By continuing, you agree to Amazon's <a href="#">Conditions of Use</a> and <a href="#">Privacy Notice</a>.
+                            By continuing, you agree to Amazon's <a className="form_a" href="#">Conditions of Use</a> and <a className="form_a" href="#">Privacy Notice</a>.
                         </div>
                         <div>
                             <input type="checkbox" className="checkbox" name="rememberMe" value="true" />
-                            Keep me signed in. <a href="#">Details</a>
+                            Keep me signed in. <a className="form_a" href="#">Details</a>
                         </div>
                         <div className="divider">
-                            <h5>New to Amazon?</h5>
+                            <h5 className="form_h5">New to Amazon?</h5>
                         </div>
 
-                        <button type="button">Create your Amazon account</button>
+                        <button className="form_button" type="button" onClick={() => navigate("/register")}>Create your Amazon account</button>
                     </div>
                 </Form>
             </Formik>
