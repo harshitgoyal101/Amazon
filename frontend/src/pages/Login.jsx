@@ -44,7 +44,7 @@ const Login = () => {
                         <Field className="form_input" type='password' id='password' name='password' placeholder='Password' autoComplete="on"/>
 
                         <button type="submit" className="form_button yellowButton">Sign In</button>
-                        <div style={{marginBottom: 20}}>
+                        <div style={{h: 20}}>
                             By continuing, you agree to Amazon's <a className="form_a" href="#">Conditions of Use</a> and <a className="form_a" href="#">Privacy Notice</a>.
                         </div>
                         <div>
