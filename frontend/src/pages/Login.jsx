@@ -13,18 +13,15 @@ const Login = () => {
     const initialValues = { username: "", password: "" };
 
     const onSubmit = async (values, {resetForm}) => {
-        console.log("Values", values);
         try {
             const loginData = {
                 username: values.username,
                 password: values.password
             }
-            console.log(loginData);
             const res = await api.post("/api/token/", loginData);
-            console.log(res)
-            localStorage.setItem(ACCESS_TOKEN, res.data.ACCESS_TOKEN);
-            localStorage.setItem(REFRESH_TOKEN, res.data.REFRESH_TOKEN);
-            navigate("/")
+            localStorage.setItem(ACCESS_TOKEN, res.data.access);
+            localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
+            navigate("/");
         } catch(error) {
             console.log(error);
         }
