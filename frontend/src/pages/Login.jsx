@@ -9,22 +9,7 @@ import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
 import {Snackbar,Alert} from '@mui/material';
 
 const Login = () => {
-    const navigate = useNavigate();
-    const [open, setOpen] = useState(false);
-    const [message, setMessage] = useState('');
-    const [severity, setSeverity] = useState('success');
-    const [vertical,setVertical]=useState("top");
-    const [horizontal,setHorizontal]=useState("center");
-  
-    const handleClose = () => {
-      setOpen(false);
-    };
-  
-    const showSnackbar = (message, severity) => {
-      setMessage(message);
-      setSeverity(severity);
-      setOpen(true);
-    };
+   
 
     const initialValues = { username: "", password: "" };
 
@@ -40,7 +25,6 @@ const Login = () => {
             navigate("/");
         } catch(error) {
             console.error('Error:', error);
-            showSnackbar('Network error. Please check your internet connection.', 'error');
         }
 
         resetForm();
@@ -76,11 +60,6 @@ const Login = () => {
                     </div>
                 </Form>
             </Formik>
-            <Snackbar open={open} autoHideDuration={6000} onClose={handleClose} anchorOrigin={{vertical,horizontal} }>
-                <Alert  variant="outlined" onClose={handleClose} severity={severity} sx={{ width: '100%' }}>
-                        {message}
-                </Alert>
-            </Snackbar>
         </div>
     );
 };
