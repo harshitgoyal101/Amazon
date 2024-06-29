@@ -9,7 +9,8 @@ import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
 import {Snackbar,Alert} from '@mui/material';
 
 const Login = () => {
-   
+
+    const navigate = useNavigate();
 
     const initialValues = { username: "", password: "" };
 
