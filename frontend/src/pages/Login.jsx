@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import api from "../api";
@@ -6,11 +6,12 @@ import logo from '../assets/amazon_logo.webp';
 import { useNavigate } from "react-router-dom";
 import "../styles/form.css";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
-import {Snackbar,Alert} from '@mui/material';
+import { SnackbarContext } from "../components/context/SnackbarContext";
 
 const Login = () => {
 
     const navigate = useNavigate();
+    const {showSnackbar}=useContext(SnackbarContext);
 
     const initialValues = { username: "", password: "" };
 
@@ -21,11 +22,21 @@ const Login = () => {
                 password: values.password
             }
             const res = await api.post("/api/token/", loginData);
+            if (res.status === 200) {
+                showSnackbar('Login successful', 'success');
+              } else {
+                if (res.data.error) {
+                  showSnackbar(res.data.error, 'error');
+                } else {
+                  showSnackbar('Login failed. Please try again later.', 'error');
+                }
+              }
             localStorage.setItem(ACCESS_TOKEN, res.data.access);
             localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
             navigate("/");
         } catch(error) {
-            console.error('Error:', error);
+            console.error('Error:', error); 
+            showSnackbar('Network error. Please check your internet connection.', 'error');
         }
 
         resetForm();
