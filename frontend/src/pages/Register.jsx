@@ -11,7 +11,7 @@ const Register = () => {
     const navigate = useNavigate();
 
     const initialValues = { 
-        username: "",
+        username: "nishi",
         email: "", 
         password: "",
         re_password: ""
