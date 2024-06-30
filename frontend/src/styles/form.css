@@ -36,9 +36,9 @@
 }
 
 .form_h3 {
+    margin-top: 10px;
     display: block;
-    padding-left: 2px;
-    padding-bottom: 2px;
+    padding: 2px;
     font-weight: 700;
     margin-bottom: 0;
     font-size: 13px;
@@ -46,7 +46,7 @@
 }
 
 .form_input {
-    width: 320px;
+    width: 100%;
     margin: 0;
     background-color: #fff;
     height: 31px;
