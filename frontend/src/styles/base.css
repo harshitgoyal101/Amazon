@@ -1,0 +1,10 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 0;
+}
+
+body, html {
+    width: 100%;
+}

@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import api from "../api";
+import Navbar from "../components/Navbar"
+import "../styles/base.css"
 
 function Home() {
     const [products, setProducts] = useState([]);
@@ -11,10 +13,11 @@ function Home() {
             .get("api/products/")
             .then((res) => res.data)
             .then((data) => setProducts(data))
-            .catch((err) => alert(err));
+            .catch();
     };
 
     return <>
+        <Navbar />
         <h1>Home</h1>
         {products.map((product) => <h1>{product.name}</h1>)}
     </>

@@ -3,7 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import api from "../api";
 import { Link } from 'react-router-dom';
-import logo from '../assets/amazon_logo.webp';
+import logo from '../assets/amazon_logo_white.webp';
 import { useNavigate } from "react-router-dom";
 import "../styles/form.css";
 
