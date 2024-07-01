@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import api from "../api";
 import Navbar from "../components/Navbar"
 import "../styles/base.css"
+// import ProductPage from ",,"
 
 function Home() {
     const [products, setProducts] = useState([]);
@@ -19,6 +20,7 @@ function Home() {
     return <>
         <Navbar />
         <h1>Home</h1>
+        
         {products.map((product) => <h1>{product.name}</h1>)}
     </>
 }
